@@ -25,9 +25,11 @@ Make sure you have the latest version of XCode, with the command line tools inst
 ## Databases
 
 ### MongoDB
+
 Soon
 
 ### Riak
+
 Soon
 
 ### MySQL
