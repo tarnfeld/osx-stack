@@ -2,43 +2,43 @@
 
 A set of instructions for installing my development stack on OSX (Lion)
 
-	## Install the basics
+## Install the basics
 
-		### Dependencies
+### Dependencies
 
-			Make sure you have the latest version of XCode, with the command line tools installed. Also be sure the path to the command line tools is in your `$PATH` variable.
+Make sure you have the latest version of XCode, with the command line tools installed. Also be sure the path to the command line tools is in your `$PATH` variable.
 
-		### Homebrew
+### Homebrew
 
-			#### Install homebrew
+#### Install homebrew
 
-			    /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+    /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
-			#### Install git
+#### Install git
 
-			    brew install git git-flow 
+    brew install git git-flow 
 
-			#### Update homebrew
+#### Update homebrew
 
-			    brew update
+    brew update
 
-			#### Get the extra homebrew bits
+#### Get the extra homebrew bits
 
-			    git clone git://github.com/tarnfeld/homebrew-alt.git /usr/local/LibraryAlt
+    git clone git://github.com/tarnfeld/homebrew-alt.git /usr/local/LibraryAlt
 
-	## Web stack
+## Web stack
 
-		### Install a few languages / extras
+### Install a few languages / extras
 
-			#### PHP (with fpm and mysql)
+#### PHP (with fpm and mysql)
 
-			    brew install /usr/local/LibraryAlt/duplicates/php.rb --with-fpm --with-mysql
+    brew install /usr/local/LibraryAlt/duplicates/php.rb --with-fpm --with-mysql
 
-			#### Node.js, Node Package Manager
+#### Node.js, Node Package Manager
 
-			    brew install node
-			    curl http://npmjs.org/install.sh | sh
+    brew install node
+    curl http://npmjs.org/install.sh | sh
 
-			#### Ruby, Rubygems, RVM
+#### Ruby, Rubygems, RVM
 
-			    curl -L get.rvm.io | bash -s stable
+    curl -L get.rvm.io | bash -s stable
