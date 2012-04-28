@@ -66,6 +66,14 @@ Soon
     && sudo cp LaunchDaemons/org.php-fpm.plist /Library/LaunchDaemons/ \
     && sudo launchctl load /Library/LaunchDaemons/org.php-fpm.plist
 
+### NGINX
+
+    brew install nginx \
+    && sudo mkdir -p /Library/LaunchDaemons \
+    && sudo cp -r Config/nginx /usr/local/etc/nginx \
+    && sudo cp LaunchDaemons/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/ \
+    && sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+
 ### Node.js (and npm)
 
     brew install node \
