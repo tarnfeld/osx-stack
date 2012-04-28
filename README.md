@@ -1,6 +1,6 @@
 # osx-stack
 
-A set of instructions for installing my development stack on OSX (Lion)
+A set of instructions for installing my development stack on OSX (Lion). You may also need root for some of these commands! **Run all of these commnds from the root of this repository**.
 
 ## Install the basics
 
@@ -12,7 +12,7 @@ Make sure you have the latest version of XCode, with the command line tools inst
 
 ### Install git
 
-    brew install git git-flow 
+    brew install git git-flow
 
 ### Update homebrew
 
@@ -22,24 +22,62 @@ Make sure you have the latest version of XCode, with the command line tools inst
 
     git clone git://github.com/tarnfeld/homebrew-alt.git /usr/local/LibraryAlt
 
+## Databases
+
+### MongoDB
+Soon
+
+### Riak
+Soon
+
+### MySQL
+
+    brew install mysql \
+    && sudo mkdir -p /Library/LaunchAgents \
+    && sudo cp LaunchAgents/homebrew.mxcl.mysql.plist /Library/LaunchAgents/ \
+    && sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.mysql.plist \
+    && sudo mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+
+### Redis
+
+    brew install redis \
+    && sudo mkdir -p /Library/LaunchAgents \
+    && sudo cp LaunchAgents/homebrew.mxcl.redis.plist /Library/LaunchAgents/ \
+    && sudo launchctl load /Library/LaunchAgents/homebrew.redis.mysql.plist
+
+### Memcached
+
+    brew install memcached \
+    && sudo mkdir -p /Library/LaunchDaemons \
+    && sudo cp LaunchDaemons/homebrew.mxcl.memcached.plist /Library/LaunchDaemons/ \
+    && sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.memcached.plist
+
 ## Web stack
 
-### PHP (with fpm and mysql)
+### PHP (with fpm, mysql and other extensions)
 
-    brew install /usr/local/LibraryAlt/duplicates/php.rb --with-fpm --with-mysql
+    brew install /usr/local/LibraryAlt/duplicates/php.rb --with-fpm --with-mysql \
+    && brew install gearman-php memcached-php mongo-php xdebug-php xcache-php redis-php imagick-php
+    && cp Config/php.ini /usr/local/etc/php.ini \
+    && cp Config/php-fpm.conf /usr/local/etc/php-fpm.conf \
+    && sudo mkdir -p /Library/LaunchDaemons \
+    && sudo cp LaunchDaemons/org.php-fpm.plist /Library/LaunchDaemons/ \
+    && sudo launchctl load /Library/LaunchDaemons/org.php-fpm.plist
 
-### Node.js, Node Package Manager
+### Node.js (and npm)
 
     brew install node \
     && curl http://npmjs.org/install.sh | sh
 
 ### Rubygems
 
-    git clone git://github.com/rubygems/rubygems.git ~/rubygems \
-    && cd ~/rubygems \
+    git clone git://github.com/rubygems/rubygems.git /tmp/rubygems \
+    && OLD_PATH=`pwd` \
+    && cd /tmp/rubygems \
     && sudo ruby setup.rb \
     && cd .. \
-    && rm -rf rubygems
+    && rm -rf rubygems \
+    && cd $OLD_PATH
 
 ### RVM
 
@@ -47,6 +85,6 @@ Make sure you have the latest version of XCode, with the command line tools inst
     && source ~/.rvm/scripts/'rvm' \
   	&& rvm install 1.9.3 \
 
-Make sure you add the following to your bash profile (usually `~/.profile`).
+Make sure you add the following to your bash profile (usually `~/.profile`)
 
     source ~/.rvm/scripts/'rvm'
