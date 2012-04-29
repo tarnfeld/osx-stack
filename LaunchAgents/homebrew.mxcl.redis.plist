@@ -14,7 +14,7 @@
     <key>RunAtLoad</key>
     <true/>
     <key>UserName</key>
-  <string>root</string>
+    <string>root</string>
     <key>WorkingDirectory</key>
     <string>/usr/local/var</string>
     <key>StandardErrorPath</key>
