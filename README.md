@@ -80,6 +80,7 @@ Run the following commands to configure apache (the version that comes preinstal
 
     sudo cp Config/apache/includes.conf /etc/apache2/other/ \
     && sudo cp Config/apache/php.conf /etc/apache2/other/ \
+    && sudo cp Config/apache/directory.conf /etc/apache2/other/ \
     && sudo cp Config/php.ini /etc/php.ini \
     && sudo apachectl restart
 
