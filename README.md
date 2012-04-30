@@ -45,7 +45,7 @@ Soon
     brew install redis \
     && sudo mkdir -p /Library/LaunchAgents \
     && sudo cp LaunchAgents/homebrew.mxcl.redis.plist /Library/LaunchAgents/ \
-    && sudo launchctl load /Library/LaunchAgents/homebrew.redis.mysql.plist
+    && sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 ### Memcached
 
