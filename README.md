@@ -74,6 +74,15 @@ Soon
     && sudo cp LaunchDaemons/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/ \
     && sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 
+### Apache
+
+Run the following commands to configure apache (the version that comes preinstalled). **Don't forget to enable web sharing!**
+
+    sudo cp Config/apache/includes.conf /etc/apache2/other/ \
+    && sudo cp Config/apache/php.conf /etc/apache2/other/ \
+    && sudo cp Config/php.ini /etc/php.ini \
+    && sudo apachectl restart
+
 ### Node.js (and npm)
 
     brew install node \
