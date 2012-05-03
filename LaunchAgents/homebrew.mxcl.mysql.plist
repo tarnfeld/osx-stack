@@ -11,7 +11,7 @@
   <key>RunAtLoad</key>
   <true/>
   <key>UserName</key>
-  <string>root</string>
+  <string>_mysql</string>
   <key>WorkingDirectory</key>
   <string>/usr/local/var</string>
 </dict>
