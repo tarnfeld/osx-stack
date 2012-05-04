@@ -108,3 +108,10 @@ Run the following commands to configure apache (the version that comes preinstal
 Make sure you add the following to your bash profile (usually `~/.profile`)
 
     source ~/.rvm/scripts/'rvm'
+
+## Tools
+
+### Teleport
+
+    gem install teleport
+
