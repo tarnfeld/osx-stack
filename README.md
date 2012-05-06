@@ -66,6 +66,15 @@ Soon
     && sudo cp LaunchDaemons/org.php-fpm.plist /Library/LaunchDaemons/ \
     && sudo launchctl load /Library/LaunchDaemons/org.php-fpm.plist
 
+### PHPUnit
+
+    sudo pear config-set auto_discover 1 \
+    && sudo pear install pear.phpunit.de/PHPUnit
+
+Make sure you have the following in your path
+
+    /usr/local/Cellar/php/5.3.10/bin
+
 ### NGINX
 
     brew install nginx \
