@@ -66,6 +66,15 @@ Soon
     && sudo cp LaunchDaemons/org.php-fpm.plist /Library/LaunchDaemons/ \
     && sudo launchctl load /Library/LaunchDaemons/org.php-fpm.plist
 
+### PHP XDebug (if you don't install it from above)
+
+    brew tap josegonzalez/php \
+    && brew install josegonzalez/php/xdebug-php
+
+Make sure you add the following to your php ini (usually `/usr/local/etc/php.ini`)
+
+    zend_extension="/usr/local/Cellar/xdebug-php/2.1.3/xdebug.so"
+
 ### PHPUnit
 
     sudo pear config-set auto_discover 1 \
