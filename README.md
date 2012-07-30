@@ -30,7 +30,8 @@ Soon
 
 ### Riak
 
-Soon
+    brew install riak\
+    riak start
 
 ### MySQL
 
