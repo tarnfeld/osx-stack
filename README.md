@@ -40,6 +40,18 @@ Soon
     && sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.mysql.plist \
     && sudo mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
+### Postgres
+
+The Homebrew formula does not create a "postgres" user, as was common up to this point. Out of the box, you authenticate against the DB using the same user account under which you ran brew install. It's perfectly acceptable to leave it that way on your Dev machine. Don't forget to change that if this is a Production environment.
+
+    brew rm postgresql --force \
+    && brew update \
+    && brew install postgresql --without-ossp-uuid \
+    && initdb /usr/local/var/postgres \
+    && cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/ \
+    && launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist \
+    && pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
 ### Redis
 
     brew install redis \
