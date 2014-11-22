@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>KeepAlive</key>
-  <true/>
+  <false/>
   <key>Label</key>
   <string>org.php-fpm</string>
   <key>ProgramArguments</key>
